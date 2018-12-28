@@ -1,0 +1,15 @@
+[Unit]
+Description=Oracle OSWatcher
+Documentation=https://support.oracle.com/epmos/faces/DocumentDisplay?id=1531223.1
+
+[Install]
+WantedBy=basic.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/oswbb.conf
+ExecStart=/bin/su ${OSW_USER} -c "cd ${OSW_HOME} && ./OSWatcher.sh ${OSW_INTERVAL} ${OSW_RETENTION} ${OSW_COMPRESSION} ${OSWBB_ARCHIVE_DEST}"
+ExecStop=/bin/su ${OSW_USER} -c "cd ${OSW_HOME} && ./stopOSWbb.sh"
+Restart=always
+StandardOutput=journal
+SyslogIdentifier=OSWbb
