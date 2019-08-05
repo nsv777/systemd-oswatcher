@@ -11,14 +11,14 @@ be downloaded as standalone utility using My Oracle Support Note
 The standalone utility does not contain a start/stop script. To integrate
 with systemd use these two files:
 
-1. oswbb.conf
-2. oswbb.service
+1. oswatcher.conf
+2. oswatcher.service
 
-`oswbb.conf` includes all settings needed to run `startOSWbb.sh` using systemd.
-Please don't forget to update `oswbb.service` to reference the location of the
+`oswatcher.conf` includes all settings needed to run `startOSWbb.sh` using systemd.
+Please don't forget to update `oswatcher.service` to reference the location of the
 configuration file.
 
-After putting `oswbb.service` in `/etc/systemd/system` reload systemd using
+After putting `oswatcher.service` in `/etc/systemd/system` reload systemd using
 `systemctl daemon-reload` and enable the unit using
-`systemctl enable oswbb.service`. After the one can start the service as usual
-using `systemctl start oswbb.service`.
+`systemctl enable oswatcher.service`. After the one can start the service as usual
+using `systemctl start oswatcher.service`.
