@@ -1,8 +1,8 @@
 [Unit]
 Description=Oracle OSWatcher
 Documentation=https://support.oracle.com/epmos/faces/DocumentDisplay?id=1531223.1
-# StartLimitInterval in old systemd versions
-StartLimitIntervalSec=0
+# StartLimitIntervalSec in recent systemd versions
+StartLimitInterval=0
 
 [Install]
 WantedBy=basic.target
