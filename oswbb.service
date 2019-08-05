@@ -9,11 +9,11 @@ WantedBy=basic.target
 
 [Service]
 Type=simple
-EnvironmentFile=/etc/oswbb.conf
+EnvironmentFile=/etc/oswatcher.conf
 ExecStart=/bin/su ${OSW_USER} -c "cd ${OSW_HOME} && ./OSWatcher.sh ${OSW_INTERVAL} ${OSW_RETENTION} ${OSW_COMPRESSION} ${OSWBB_ARCHIVE_DEST}"
 ExecStop=/bin/su ${OSW_USER} -c "cd ${OSW_HOME} && ./stopOSWbb.sh"
 Restart=always
 # time to sleep before restarting a service
 RestartSec=3
 StandardOutput=journal
-SyslogIdentifier=OSWbb
+SyslogIdentifier=oswatcher
