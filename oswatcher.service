@@ -1,17 +1,16 @@
 [Unit]
 Description=Oracle OSWatcher
 Documentation=https://support.oracle.com/epmos/faces/DocumentDisplay?id=1531223.1
-# StartLimitIntervalSec in recent systemd versions
-StartLimitInterval=0
 
 [Install]
 WantedBy=basic.target
 
 [Service]
 Type=simple
-EnvironmentFile=/etc/oswatcher.conf
-ExecStart=/bin/su ${OSW_USER} -c "cd ${OSW_HOME} && ./OSWatcher.sh ${OSW_INTERVAL} ${OSW_RETENTION} ${OSW_COMPRESSION} ${OSWBB_ARCHIVE_DEST}"
-ExecStop=/bin/su ${OSW_USER} -c "cd ${OSW_HOME} && ./stopOSWbb.sh"
+User=oracle
+WorkingDirectory=/home/oracle/OSW/oswbb812/oswbb
+ExecStart=/home/oracle/OSW/oswbb812/oswbb/OSWatcher.sh 60 720 gzip /home/oracle/OSW_logs
+ExecStop=/home/oracle/OSW/oswbb812/oswbb/stopOSWbb.sh
 Restart=always
 # time to sleep before restarting a service
 RestartSec=3
