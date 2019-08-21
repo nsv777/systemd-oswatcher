@@ -12,5 +12,5 @@ Please don't forget to update paths in `oswatcher.service`.
 
 After putting `oswatcher.service` in `/etc/systemd/system` reload systemd using
 `systemctl daemon-reload` and enable the unit using
-`systemctl enable oswatcher.service`. After the one can start the service as usual
-using `systemctl start oswatcher.service`.
+`systemctl enable oswatcher.service`. After that one can start the service as usual
+with `systemctl start oswatcher.service`.
