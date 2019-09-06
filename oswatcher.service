@@ -8,9 +8,9 @@ WantedBy=basic.target
 [Service]
 Type=simple
 User=oracle
-WorkingDirectory=/home/oracle/OSW/oswbb812/oswbb
-ExecStart=/home/oracle/OSW/oswbb812/oswbb/OSWatcher.sh 60 720 gzip /home/oracle/OSW_logs
-ExecStop=/home/oracle/OSW/oswbb812/oswbb/stopOSWbb.sh
+WorkingDirectory=/home/oracle/OSW/oswbb
+ExecStart=/home/oracle/OSW/oswbb/OSWatcher.sh 60 720 gzip /home/oracle/OSW_logs
+ExecStop=/home/oracle/OSW/oswbb/stopOSWbb.sh
 Restart=always
 # time to sleep before restarting a service
 RestartSec=3
